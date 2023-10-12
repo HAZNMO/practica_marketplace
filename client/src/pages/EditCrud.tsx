@@ -6,7 +6,7 @@ export function EditCrud() {
     <div>
       <h1>Users / Products</h1>
       <nav>
-        <ul>
+        <ul style={{listStyle: "none", paddingLeft: "0px"}}>
           <li>
             <NavLink to="/users">
               <Button variant="primary" className='me-auto mt-3'>Users</Button>

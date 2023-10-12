@@ -1,5 +1,5 @@
 import { Button,  Container, Nav, Navbar as NavbarBs } from 'react-bootstrap'
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useShoppingCart } from '../context/ShoppingCartContext'
 
 export function Navbar() {
@@ -10,12 +10,23 @@ return (
 
     <NavbarBs sticky="top" className='bg-white shadow-sm mb-3'>
         <Container>
-            <Nav className='me-auto'>
+            <Link to="/">
+            <Button
+                style={{width:"3rem",height:"3rem", position: "relative"}}
+                variant="none"
+                >
+                <img
+                    src={"/imgs/logo.svg"}
+                    style={{ width: "4rem", height: "3rem" }}
+                />                    
+            </Button> 
+            </Link>
+            <Nav className='me-auto ma-mid'>
+                {/* <Nav.Link to="/" as={NavLink}>
+                    Home
+                </Nav.Link> */}
                 <Nav.Link to="/" as={NavLink}>
                     Home
-                </Nav.Link>
-                <Nav.Link to="/store" as={NavLink}>
-                    Store
                 </Nav.Link>
                 <Nav.Link to="/about" as={NavLink}>
                     About
@@ -24,7 +35,7 @@ return (
                     Edit Crud
                 </Nav.Link>
             </Nav>
-            {cartQuantity > 0 && (
+            {/* {cartQuantity > 0 && ( */}
 
                 <Button
                 onClick={openCart}
@@ -59,7 +70,7 @@ return (
                         </div>
                     
                 </Button> 
-            )}
+             {/* )}  */}
         </Container>
     </NavbarBs>
  ) 

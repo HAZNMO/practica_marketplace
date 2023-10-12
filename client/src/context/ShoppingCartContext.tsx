@@ -33,10 +33,9 @@ export function useShoppingCart() {
 export function ShoppingCartProvider( { children }:
     (ShoppingCartProviderProps) ) {
         const [ isOpen , setIsOpen ] = useState(false) 
-        const [ cartItems , setCartItems ] = useLocalStorage<CartItem[]>("shopping-cart",[]) 
+        const [ cartItems , setCartItems ] = useLocalStorage<CartItem[]>("shopping-cart",[])
 
-        const cartQuantity = cartItems.reduce((quantity,item) => item.quantity + quantity,0)
-        
+        const cartQuantity = cartItems.reduce((quantity,item) => item.quantity + quantity, 0)
         const openCart = () => setIsOpen(true)
 
         const closeCart = () => setIsOpen(false)
@@ -48,7 +47,7 @@ export function ShoppingCartProvider( { children }:
         function increaseItemQuantity(id:number) {
             setCartItems(currItems => {
                 if(currItems.find(item => item.id === id) == null) {
-                    return [...currItems, {id, quantity: 1}]
+                    return [...currItems, {id, quantity: 0}]
                 } else {
                     return currItems.map(item => {
                         if(item.id === id) {
